@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://helittr.github.io</id>
+    <title>Holy</title>
+    <link href="https://helittr.github.io" />
+    <updated>2023-03-05T14:58:04.000Z</updated>
+    <entry>
+        <id>https://helittr.github.io/2023/03/05/build-blog/</id>
+        <title>搭建一个属于自己的博客</title>
+        <link rel="alternate" href="https://helittr.github.io/2023/03/05/build-blog/"/>
+        <content type="html">&lt;p&gt;通常来说博客就是一个网站，它可以像一张名牌一样介绍自己，也可以像笔记记录你的成长历程。你可以在上面分享各种文章，给人们答疑解惑的同时提供编写及表达能力。&lt;br&gt;本文提供了一个基于 Hexo 静态博客框架的搭建方式。&lt;/p&gt;
+&lt;h2 id=&#34;博客类型&#34;&gt;&lt;a href=&#34;#博客类型&#34; class=&#34;headerlink&#34; title=&#34;博客类型&#34;&gt;&lt;/a&gt;博客类型&lt;/h2&gt;&lt;h3 id=&#34;动态博客&#34;&gt;&lt;a href=&#34;#动态博客&#34; class=&#34;headerlink&#34; title=&#34;动态博客&#34;&gt;&lt;/a&gt;动态博客&lt;/h3&gt;&lt;p&gt;平时我们经常看到的博客有 CSDN，博客园等。它们都是动态博客站点，动态博客得益于后端的支持，你可以在博客站点注册用户，上传，编写文章。但是有一个很大的缺陷是无法高度自定义页面外观。&lt;br&gt;通常这些站点都是以盈利为目的，通过 会员 广告 为主要盈利手段。&lt;/p&gt;
+&lt;h3 id=&#34;静态博客&#34;&gt;&lt;a href=&#34;#静态博客&#34; class=&#34;headerlink&#34; title=&#34;静态博客&#34;&gt;&lt;/a&gt;静态博客&lt;/h3&gt;&lt;p&gt;创建一个人高度自定义美观的静态博客，可能是大多数人的一个小目标。面对繁琐的步骤以及维护，让很多人望而却步。静态博客通过一定的规则将文本生成 html css javascript 静态文件，而无需后端程序便可以访问。你可以灵活的自定义以及修改这些规则，从而生成自己风格的博客站点。&lt;/p&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;&lt;a href=&#34;#准备工作&#34; class=&#34;headerlink&#34; title=&#34;准备工作&#34;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;了解一些基本的前后端知识，或许能够帮助你理解搭建的流程, 下面是一些关于前后端知识的网站&lt;ul&gt;
+&lt;li&gt;Nodejs: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==&#34;&gt;https://nodejs.org/en/&lt;/span&gt; (javascript 脚本解析器)&lt;/li&gt;
+&lt;li&gt;MDN: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWI=&#34;&gt;https://developer.mozilla.org/zh-CN/docs/Web&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Markdown: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tYXJrZG93bi5jb20uY24v&#34;&gt;https://markdown.com.cn/&lt;/span&gt; (文本标记语言)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一个 blog 静态生成框架&lt;ul&gt;
+&lt;li&gt;Hexo: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuLw==&#34;&gt;https://hexo.io/zh-cn/&lt;/span&gt; （静态博客生成框架）&lt;/li&gt;
+&lt;li&gt;shoka: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==&#34;&gt;https://github.com/amehime/hexo-theme-shoka&lt;/span&gt; （Hexo 博客主题）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;额外的工具&lt;ul&gt;
+&lt;li&gt;git: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS8=&#34;&gt;https://git-scm.com/&lt;/span&gt; （版本控制工具）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;:heavy_exclamation_mark:本文参考这些文章，总结而来，如果有不理解的地方，这些文档也许对你有帮助。&lt;/p&gt;
+&lt;h2 id=&#34;开始搭建&#34;&gt;&lt;a href=&#34;#开始搭建&#34; class=&#34;headerlink&#34; title=&#34;开始搭建&#34;&gt;&lt;/a&gt;开始搭建&lt;/h2&gt;&lt;p&gt;:red_circle:本文默认 window 平台搭建，如过你使用的 Linux 或则 macos 平台，你可以参考此流程，根据平台的差异自行决策。&lt;/p&gt;
+&lt;h3 id=&#34;安装依赖&#34;&gt;&lt;a href=&#34;#安装依赖&#34; class=&#34;headerlink&#34; title=&#34;安装依赖&#34;&gt;&lt;/a&gt;安装依赖&lt;/h3&gt;&lt;p&gt;Hexo 项目基于 Nodejs，因此你需要安装它之后才能使用。Git 是一个版本控制工具，Hexo 托管与 github, 需要通过 git 来下载。并且后续的文档也需要 Git 来进行部署。&lt;br&gt;Nodejs 和 git 的下载链接可以在 &lt;a href=&#34;#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C&#34;&gt;准备工作&lt;/a&gt; 章节找到。:smile:&lt;/p&gt;
+&lt;p&gt;:heavy_exclamation_mark:检查你的安装是否生效，以及修改默认源以提高下载速度&lt;br&gt;打开一个 powershell 窗口，执行下面命令来检查安装是否正确。如果你获得类似的响应，表示成功安装。&lt;br&gt;如果命令行窗口在安装之前打开了，在安装完成之后你可能需要重新打开一个新的窗口才能生效。&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; node &lt;span class=&#34;literal&#34;&gt;--version&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;v18.&lt;span class=&#34;number&#34;&gt;14.2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; git &lt;span class=&#34;literal&#34;&gt;--version&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git version &lt;span class=&#34;number&#34;&gt;2.39&lt;/span&gt;.&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;.windows.&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;对于国内同学，执行下面的命令来修改 nodejs 包的下载源以提高下载速度。&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; npm config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; registry https://registry.npmmirror.com/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;安装-Hexo-并创建项目&#34;&gt;&lt;a href=&#34;#安装-Hexo-并创建项目&#34; class=&#34;headerlink&#34; title=&#34;安装 Hexo 并创建项目&#34;&gt;&lt;/a&gt;安装 Hexo 并创建项目&lt;/h3&gt;&lt;p&gt;通过 npm 包管理器来安装 hexo&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; npm install &lt;span class=&#34;literal&#34;&gt;-g&lt;/span&gt; hexo&lt;span class=&#34;literal&#34;&gt;-cli&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;added &lt;span class=&#34;number&#34;&gt;59&lt;/span&gt; packages &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;17&lt;/span&gt;s&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装完成后，便可以使用 hexo 工具生成 hexo 工程。&lt;br&gt;创建一个文件夹并且在该文件夹下初始化工程。&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; mkdir blog&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; &lt;span class=&#34;built_in&#34;&gt;cd&lt;/span&gt; blog&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; npx hexo init .&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  Cloning hexo&lt;span class=&#34;literal&#34;&gt;-starter&lt;/span&gt; https://github.com/hexojs/hexo&lt;span class=&#34;literal&#34;&gt;-starter&lt;/span&gt;.git&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fatal: unable to access &lt;span class=&#34;string&#34;&gt;&amp;#x27;https://github.com/hexojs/hexo-starter.git/&amp;#x27;&lt;/span&gt;: SSL certificate problem: unable to get local issuer certificate&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;WARN  git clone failed. Copying &lt;span class=&#34;keyword&#34;&gt;data&lt;/span&gt; instead&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  Install dependencies&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;INFO  &lt;span class=&#34;built_in&#34;&gt;Start&lt;/span&gt; blogging with Hexo!&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;至此，你便搭建好了一个最基础 hexo 博客工程。&lt;/p&gt;
+</content>
+        <updated>2023-03-05T14:58:04.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://helittr.github.io/2023/03/05/hello-world/</id>
+        <title>Hello World</title>
+        <link rel="alternate" href="https://helittr.github.io/2023/03/05/hello-world/"/>
+        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;Quick-Start&#34;&gt;&lt;a href=&#34;#Quick-Start&#34; class=&#34;headerlink&#34; title=&#34;Quick Start&#34;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&#34;Create-a-new-post&#34;&gt;&lt;a href=&#34;#Create-a-new-post&#34; class=&#34;headerlink&#34; title=&#34;Create a new post&#34;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo new &lt;span class=&#34;string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Run-server&#34;&gt;&lt;a href=&#34;#Run-server&#34; class=&#34;headerlink&#34; title=&#34;Run server&#34;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Generate-static-files&#34;&gt;&lt;a href=&#34;#Generate-static-files&#34; class=&#34;headerlink&#34; title=&#34;Generate static files&#34;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Deploy-to-remote-sites&#34;&gt;&lt;a href=&#34;#Deploy-to-remote-sites&#34; class=&#34;headerlink&#34; title=&#34;Deploy to remote sites&#34;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+</content>
+        <updated>2023-03-05T13:50:40.763Z</updated>
+    </entry>
+</feed>
